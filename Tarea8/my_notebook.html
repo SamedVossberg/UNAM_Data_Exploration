@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="autoencoders-for-dimensionality-reduction">Autoencoders for
+Dimensionality Reduction</h1>
+<h2 id="air-quality-exploration-with-autoencoders">Air-Quality
+Exploration with Autoencoders</h2>
+<p>This mini-project investigates hourly air-pollution data collected at
+several RAMA stations during 2023.<br />
+After merging the individual Excel logs we performed the following
+workflow:</p>
+<ol type="1">
+<li><strong>Cleaning &amp; harmonisation</strong>
+<ul>
+<li>Converted separate <code>FECHA</code> + <code>HORA</code> columns to
+a single timestamp.<br />
+</li>
+<li>Replaced sentinel values (–99, –999) by <code>NaN</code>,
+interpolated gaps, and winsorised the extreme 0.2 % / 99.8 %
+tails.<br />
+</li>
+<li>Retained only station–pollutant columns with ≥ 50 % valid data and
+noticeable variance.</li>
+</ul></li>
+<li><strong>Dimensionality reduction with an autoencoder</strong>
+<ul>
+<li>Standardised each feature using <em>median</em> and <em>IQR</em>
+(<code>RobustScaler</code>) to tame residual outliers.<br />
+</li>
+<li>Trained a fully-connected <strong>autoencoder</strong> with a
+2-neuron bottleneck (<code>latent = 2</code>).<br />
+The network learns a non-linear mapping<br />
+[ ;;f_{}()^2 ] that best reconstructs the original 30-dimensional
+pollution vector.<br />
+</li>
+<li>Extracted the 2-D latent coordinates for every timestamp and
+visualised them, colouring by hour of day and by month.</li>
+</ul></li>
+</ol>
+<p>Autoencoders serve here as a <strong>non-linear alternative to
+PCA</strong>:<br />
+they can compress highly correlated pollutants while preserving complex
+inter-station relationships that linear projections might miss.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob, os, re</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> RobustScaler</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras <span class="im">import</span> layers, callbacks, Model, Input</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf, matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>folder <span class="op">=</span> <span class="st">&quot;23RAMA&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>paths  <span class="op">=</span> glob.glob(os.path.join(folder, <span class="st">&quot;*.xls&quot;</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> {}                      </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> paths:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    varname <span class="op">=</span> re.sub(<span class="vs">r&quot;\.xls$&quot;</span>, <span class="st">&quot;&quot;</span>, os.path.basename(p)) </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    df_raw  <span class="op">=</span> pd.read_excel(p)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    df_raw[<span class="st">&quot;FECHA&quot;</span>] <span class="op">=</span> pd.to_datetime(df_raw[<span class="st">&quot;FECHA&quot;</span>], dayfirst<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    df_raw[<span class="st">&quot;datetime&quot;</span>] <span class="op">=</span> df_raw[<span class="st">&quot;FECHA&quot;</span>] <span class="op">+</span> pd.to_timedelta(df_raw[<span class="st">&quot;HORA&quot;</span>], unit<span class="op">=</span><span class="st">&quot;h&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    df_raw <span class="op">=</span> df_raw.drop(columns<span class="op">=</span>[<span class="st">&quot;FECHA&quot;</span>, <span class="st">&quot;HORA&quot;</span>])</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    tidy <span class="op">=</span> df_raw.melt(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        id_vars<span class="op">=</span><span class="st">&quot;datetime&quot;</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        var_name<span class="op">=</span><span class="st">&quot;station&quot;</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        value_name<span class="op">=</span>varname</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    dfs[varname] <span class="op">=</span> tidy</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>long_list <span class="op">=</span> <span class="bu">list</span>(dfs.values())</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> <span class="bu">reduce</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> a, b: pd.merge(a, b, on<span class="op">=</span>[<span class="st">&quot;datetime&quot;</span>, <span class="st">&quot;station&quot;</span>], how<span class="op">=</span><span class="st">&quot;inner&quot;</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    long_list</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> merged.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged.head())</span></code></pre></div>
+<pre><code>             datetime station  2023CO  2023NOX  2023NO  2023PM25  2023PM10  \
+0 2023-01-01 01:00:00     AJM    0.45        9       1       -99       -99   
+1 2023-01-01 02:00:00     AJM    0.43        8       0       -99       -99   
+2 2023-01-01 03:00:00     AJM    0.42        8       0       -99       -99   
+3 2023-01-01 04:00:00     AJM    0.48       12       1       -99       -99   
+4 2023-01-01 05:00:00     AJM    0.37       11       1       -99       -99   
+
+   2023SO2  2023O3  2023NO2  2023PMCO  
+0        1      30        8       -99  
+1        1      30        7       -99  
+2        1      31        7       -99  
+3        1      26       11       -99  
+4        1      25       11       -99  </code></pre>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>feature_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> merged.columns <span class="cf">if</span> c <span class="kw">not</span> <span class="kw">in</span> [<span class="st">&quot;datetime&quot;</span>, <span class="st">&quot;station&quot;</span>]]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> (merged</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        .set_index([<span class="st">&quot;datetime&quot;</span>, <span class="st">&quot;station&quot;</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        .unstack(<span class="st">&quot;station&quot;</span>)[feature_cols])  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>wide.columns <span class="op">=</span> [<span class="ss">f&quot;</span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> v, s <span class="kw">in</span> wide.columns]   </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> wide.sort_index()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> wide.replace([<span class="op">-</span><span class="dv">99</span>, <span class="op">-</span><span class="dv">999</span>], np.nan)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;After sentinel→NaN:&quot;</span>, wide.shape)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>valid_frac <span class="op">=</span> (wide.notna().mean())</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> wide.loc[:, valid_frac <span class="op">&gt;=</span> <span class="fl">0.50</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;After column filter (≥50 </span><span class="sc">% d</span><span class="st">ata):&quot;</span>, wide.shape)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> wide.interpolate(limit_direction<span class="op">=</span><span class="st">&#39;both&#39;</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>before <span class="op">=</span> wide.shape[<span class="dv">0</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>wide   <span class="op">=</span> wide.dropna(how<span class="op">=</span><span class="st">&#39;any&#39;</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Rows dropped for residual NaNs: </span><span class="sc">{</span>before <span class="op">-</span> wide<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;After row filter:&quot;</span>, wide.shape)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> wide.loc[:, wide.std() <span class="op">&gt;</span> <span class="fl">1e-3</span>]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;After flat-column filter:&quot;</span>, wide.shape)</span></code></pre></div>
+<pre><code>After sentinel→NaN: (5088, 144)
+After column filter (≥50 % data): (5088, 103)
+Rows dropped for residual NaNs: 0
+After row filter: (5088, 103)
+After flat-column filter: (5088, 103)</code></pre>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X_train, X_val <span class="op">=</span> train_test_split(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    wide.values,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    test_size<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    shuffle<span class="op">=</span><span class="va">False</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> RobustScaler()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>X_val   <span class="op">=</span> scaler.transform(X_val)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>n_feat <span class="op">=</span> X_train.shape[<span class="dv">1</span>]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>inp <span class="op">=</span> Input((n_feat,))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>z   <span class="op">=</span> layers.Dense(<span class="dv">2</span>, name<span class="op">=</span><span class="st">&#39;z&#39;</span>)(inp)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> layers.Dense(n_feat)(z)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>ae <span class="op">=</span> Model(inp, out)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ae.<span class="bu">compile</span>(<span class="st">&#39;adam&#39;</span>, <span class="st">&#39;mse&#39;</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>stop <span class="op">=</span> callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">10</span>, restore_best_weights<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>ae.fit(X_train, X_train,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>       validation_data<span class="op">=</span>(X_val, X_val),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>       epochs<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>       batch_size<span class="op">=</span><span class="dv">128</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>       callbacks<span class="op">=</span>[stop],</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>       verbose<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> Model(ae.<span class="bu">input</span>, ae.get_layer(<span class="st">&#39;z&#39;</span>).output)</span></code></pre></div>
+<pre><code>Epoch 1/100
+32/32 - 1s - 27ms/step - loss: 2.1673 - val_loss: 1.2858
+Epoch 2/100
+32/32 - 0s - 9ms/step - loss: 2.0055 - val_loss: 1.2243
+Epoch 3/100
+32/32 - 0s - 9ms/step - loss: 1.8041 - val_loss: 1.1655
+Epoch 4/100
+32/32 - 0s - 9ms/step - loss: 1.6357 - val_loss: 1.1235
+Epoch 5/100
+32/32 - 0s - 9ms/step - loss: 1.5298 - val_loss: 1.0936
+Epoch 6/100
+32/32 - 0s - 9ms/step - loss: 1.4571 - val_loss: 1.0689
+Epoch 7/100
+32/32 - 0s - 9ms/step - loss: 1.4000 - val_loss: 1.0477
+Epoch 8/100
+32/32 - 0s - 9ms/step - loss: 1.3481 - val_loss: 1.0245
+Epoch 9/100
+32/32 - 0s - 9ms/step - loss: 1.2972 - val_loss: 0.9972
+Epoch 10/100
+32/32 - 0s - 9ms/step - loss: 1.2438 - val_loss: 0.9654
+Epoch 11/100
+32/32 - 0s - 9ms/step - loss: 1.1890 - val_loss: 0.9341
+Epoch 12/100
+32/32 - 0s - 9ms/step - loss: 1.1381 - val_loss: 0.8989
+Epoch 13/100
+32/32 - 0s - 9ms/step - loss: 1.0961 - val_loss: 0.8707
+Epoch 14/100
+32/32 - 0s - 9ms/step - loss: 1.0656 - val_loss: 0.8473
+Epoch 15/100
+32/32 - 0s - 9ms/step - loss: 1.0464 - val_loss: 0.8302
+Epoch 16/100
+32/32 - 0s - 9ms/step - loss: 1.0342 - val_loss: 0.8208
+Epoch 17/100
+32/32 - 0s - 9ms/step - loss: 1.0272 - val_loss: 0.8162
+Epoch 18/100
+32/32 - 0s - 9ms/step - loss: 1.0228 - val_loss: 0.8113
+Epoch 19/100
+32/32 - 0s - 9ms/step - loss: 1.0189 - val_loss: 0.8083
+Epoch 20/100
+32/32 - 0s - 9ms/step - loss: 1.0166 - val_loss: 0.8051
+Epoch 21/100
+32/32 - 0s - 9ms/step - loss: 1.0148 - val_loss: 0.8034
+Epoch 22/100
+32/32 - 0s - 9ms/step - loss: 1.0134 - val_loss: 0.8021
+Epoch 23/100
+32/32 - 0s - 9ms/step - loss: 1.0123 - val_loss: 0.8026
+Epoch 24/100
+32/32 - 0s - 9ms/step - loss: 1.0113 - val_loss: 0.8011
+Epoch 25/100
+32/32 - 0s - 9ms/step - loss: 1.0106 - val_loss: 0.8001
+Epoch 26/100
+32/32 - 0s - 9ms/step - loss: 1.0096 - val_loss: 0.8004
+Epoch 27/100
+32/32 - 0s - 9ms/step - loss: 1.0089 - val_loss: 0.7992
+Epoch 28/100
+32/32 - 0s - 9ms/step - loss: 1.0085 - val_loss: 0.7997
+Epoch 29/100
+32/32 - 0s - 9ms/step - loss: 1.0076 - val_loss: 0.7975
+Epoch 30/100
+32/32 - 0s - 9ms/step - loss: 1.0075 - val_loss: 0.7991
+Epoch 31/100
+32/32 - 0s - 9ms/step - loss: 1.0070 - val_loss: 0.7975
+Epoch 32/100
+32/32 - 0s - 9ms/step - loss: 1.0065 - val_loss: 0.7979
+Epoch 33/100
+32/32 - 0s - 9ms/step - loss: 1.0063 - val_loss: 0.7973
+Epoch 34/100
+32/32 - 0s - 9ms/step - loss: 1.0060 - val_loss: 0.7974
+Epoch 35/100
+32/32 - 0s - 8ms/step - loss: 1.0054 - val_loss: 0.7967
+Epoch 36/100
+32/32 - 0s - 9ms/step - loss: 1.0053 - val_loss: 0.7984
+Epoch 37/100
+32/32 - 0s - 11ms/step - loss: 1.0051 - val_loss: 0.7955
+Epoch 38/100
+32/32 - 0s - 8ms/step - loss: 1.0048 - val_loss: 0.7964
+Epoch 39/100
+32/32 - 0s - 9ms/step - loss: 1.0044 - val_loss: 0.7972
+Epoch 40/100
+32/32 - 0s - 9ms/step - loss: 1.0047 - val_loss: 0.7974
+Epoch 41/100
+32/32 - 0s - 9ms/step - loss: 1.0047 - val_loss: 0.7982
+Epoch 42/100
+32/32 - 0s - 9ms/step - loss: 1.0042 - val_loss: 0.7959
+Epoch 43/100
+32/32 - 0s - 9ms/step - loss: 1.0041 - val_loss: 0.7948
+Epoch 44/100
+32/32 - 0s - 9ms/step - loss: 1.0038 - val_loss: 0.7964
+Epoch 45/100
+32/32 - 0s - 8ms/step - loss: 1.0041 - val_loss: 0.7951
+Epoch 46/100
+32/32 - 0s - 8ms/step - loss: 1.0036 - val_loss: 0.7963
+Epoch 47/100
+32/32 - 0s - 9ms/step - loss: 1.0035 - val_loss: 0.7958
+Epoch 48/100
+32/32 - 0s - 9ms/step - loss: 1.0035 - val_loss: 0.7971
+Epoch 49/100
+32/32 - 0s - 9ms/step - loss: 1.0032 - val_loss: 0.7967
+Epoch 50/100
+32/32 - 0s - 8ms/step - loss: 1.0033 - val_loss: 0.7965
+Epoch 51/100
+32/32 - 0s - 8ms/step - loss: 1.0034 - val_loss: 0.7969
+Epoch 52/100
+32/32 - 0s - 9ms/step - loss: 1.0030 - val_loss: 0.7966
+Epoch 53/100
+32/32 - 0s - 9ms/step - loss: 1.0029 - val_loss: 0.7964</code></pre>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>wide.index <span class="op">=</span> pd.to_datetime(wide.index) </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>wide.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">&#39;_XAL&#39;</span>).plot(subplots<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>X_full     <span class="op">=</span> wide.values</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>X_full_std <span class="op">=</span> scaler.transform(X_full)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>Z_full     <span class="op">=</span> encoder.predict(X_full_std)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>emb_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;z1&quot;</span>: Z_full[:, <span class="dv">0</span>],</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;z2&quot;</span>: Z_full[:, <span class="dv">1</span>],</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;datetime&quot;</span>: wide.index</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>emb_df[<span class="st">&quot;hour&quot;</span>]  <span class="op">=</span> emb_df[<span class="st">&quot;datetime&quot;</span>].dt.hour</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>emb_df[<span class="st">&quot;month&quot;</span>] <span class="op">=</span> emb_df[<span class="st">&quot;datetime&quot;</span>].dt.month_name()</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># scatter plot hours</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.scatter(emb_df[<span class="st">&quot;z1&quot;</span>], emb_df[<span class="st">&quot;z2&quot;</span>],</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>            c<span class="op">=</span>emb_df[<span class="st">&quot;hour&quot;</span>], cmap<span class="op">=</span><span class="st">&quot;viridis&quot;</span>, s<span class="op">=</span><span class="dv">10</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Latent dim 1&quot;</span>)<span class="op">;</span> plt.ylabel(<span class="st">&quot;Latent dim 2&quot;</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Latent space – coloured by hour of day&quot;</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">&quot;Hour (0–23)&quot;</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#Scatter by month</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>month_to_int <span class="op">=</span> {m: i <span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(emb_df[<span class="st">&quot;month&quot;</span>].unique())}</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>month_ints   <span class="op">=</span> emb_df[<span class="st">&quot;month&quot;</span>].<span class="bu">map</span>(month_to_int)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>plt.scatter(emb_df[<span class="st">&quot;z1&quot;</span>], emb_df[<span class="st">&quot;z2&quot;</span>],</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>            c<span class="op">=</span>month_ints, cmap<span class="op">=</span><span class="st">&quot;tab20&quot;</span>, s<span class="op">=</span><span class="dv">10</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Latent dim 1&quot;</span>)<span class="op">;</span> plt.ylabel(<span class="st">&quot;Latent dim 2&quot;</span>)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Latent space – coloured by month&quot;</span>)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> plt.colorbar(ticks<span class="op">=</span><span class="bu">list</span>(month_to_int.values()))</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>cbar.ax.set_yticklabels(<span class="bu">list</span>(month_to_int.keys()))</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>cbar.set_label(<span class="st">&quot;Month&quot;</span>)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="co"># hist </span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>X_recon <span class="op">=</span> ae.predict(X_full_std)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>mse     <span class="op">=</span> np.mean(np.square(X_recon <span class="op">-</span> X_full_std), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>plt.hist(mse, bins<span class="op">=</span><span class="dv">50</span>, edgecolor<span class="op">=</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Per-sample MSE (standardised scale)&quot;</span>)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Frequency&quot;</span>)</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Distribution of reconstruction error&quot;</span>)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div>
+<pre><code>[1m159/159[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1ms/step</code></pre>
+<figure>
+<img src="tarea8_encoder_files/tarea8_encoder_7_1.png" alt="png" />
+<figcaption aria-hidden="true">png</figcaption>
+</figure>
+<figure>
+<img src="tarea8_encoder_files/tarea8_encoder_7_2.png" alt="png" />
+<figcaption aria-hidden="true">png</figcaption>
+</figure>
+<figure>
+<img src="tarea8_encoder_files/tarea8_encoder_7_3.png" alt="png" />
+<figcaption aria-hidden="true">png</figcaption>
+</figure>
+<pre><code>[1m159/159[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 2ms/step</code></pre>
+<figure>
+<img src="tarea8_encoder_files/tarea8_encoder_7_5.png" alt="png" />
+<figcaption aria-hidden="true">png</figcaption>
+</figure>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>station_code <span class="op">=</span> <span class="st">&quot;XAL&quot;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cols_this_station <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> wide.columns <span class="cf">if</span> c.endswith(<span class="st">&quot;_&quot;</span> <span class="op">+</span> station_code)]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>wide_station <span class="op">=</span> wide[cols_this_station]</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wide_station[<span class="st">&quot;hour&quot;</span>]  <span class="op">=</span> wide_station.index.hour</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>wide_station[<span class="st">&quot;month&quot;</span>] <span class="op">=</span> wide_station.index.month_name()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>heat <span class="op">=</span> (wide_station</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        .groupby([<span class="st">&quot;month&quot;</span>,<span class="st">&quot;hour&quot;</span>])</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        .mean()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        .unstack(<span class="st">&quot;month&quot;</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>sns.heatmap(heat[ <span class="st">&quot;2023NOX_XAL&quot;</span> ], cmap<span class="op">=</span><span class="st">&quot;viridis&quot;</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;NOx – XAL  •  hourly × month&quot;</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<pre><code>/var/folders/ml/fyq5x5t55wx4129dn03n32hm0000gn/T/ipykernel_93007/1868932150.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  wide_station[&quot;hour&quot;]  = wide_station.index.hour
+/var/folders/ml/fyq5x5t55wx4129dn03n32hm0000gn/T/ipykernel_93007/1868932150.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  wide_station[&quot;month&quot;] = wide_station.index.month_name()</code></pre>
+<figure>
+<img src="tarea8_encoder_files/tarea8_encoder_9_1.png" alt="png" />
+<figcaption aria-hidden="true">png</figcaption>
+</figure>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>The 2-D latent space captures <strong>shared variance across
+pollutants and stations</strong>, organising normal conditions into a
+dense core and pushing rare combinations into the periphery.<br />
+</li>
+<li>Colour-by-hour plots show only mild diurnal gradients, suggesting
+that <strong>station-to-station or weekly factors dominate over hourly
+cycles</strong> once data are robustly scaled.<br />
+</li>
+<li>Seasonal separation is weak in two dimensions; a higher-rank latent
+space (e.g. 4–5 D) or variable-specific models could reveal clearer
+month-wise arcs.<br />
+</li>
+<li>Reconstruction-error histograms help <strong>surface potential
+outliers</strong>: timestamps with MSE far above the median coincide
+with spikes or periods of missing / imputed data.<br />
+</li>
+<li>For further insight one could
+<ol type="1">
+<li>train <strong>single-pollutant autoencoders</strong> to isolate
+diurnal rhythms,<br />
+</li>
+<li>aggregate hourly means and cluster stations by their 24-h
+fingerprints, or<br />
+</li>
+<li>apply sequence models (LSTM-AE) to detect short-lived pollution
+episodes.</li>
+</ol></li>
+</ul>
+<p>Overall, the project demonstrates how <em>autoencoders provide an
+efficient, unsupervised lens</em> on multivariate environmental data,
+balancing dimensionality reduction, anomaly detection, and exploratory
+visualisation in a single framework.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</body>
+</html>
